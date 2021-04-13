@@ -1,29 +1,42 @@
-import React from 'react'
-import './App.css';
-import {Container,AppBar,Toolbar,Typography,Button} from '@material-ui/core';
-import useStyles from './style'
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Landing from "../src/components/Landing/Landing";
+import Auth from "../src/components/Auth/Auth";
 
-const App = () => {
+import "./App.css";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 
-const classes = useStyles();
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      // main:'#OOACEE'
+      main: "#64b5f6",
+    },
+  },
+  typography: {
+    fontFamily: "Quicksand",
+    fontWeightLight: 400,
+    fontWeightRegular: 500,
+    fontWeightMedium: 600,
+    fontWeightBold: 700,
+  },
+});
 
-  return (  
-    <Container maxwidth="lg">
-      <AppBar position="fixed" className={classes.appBar}>
-          <Toolbar>
-              <Typography variant="h5" className={classes.title}>
-                Student Social Network.
-              </Typography>
-              <Typography variant="h6" className={classes.userName} align="right">
-                Gichohi_Simon
-              </Typography>
-              <Button variant="contained" style={{backgroundColor:"#00ACEE", color:'#ffffff'}}>
-                  logout
-              </Button>
-          </Toolbar>
-      </AppBar>
-    </Container>
-   );
+function App() {
+  return (
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Switch>
+          <Route path='/' exact component={Landing}>
+            <Landing />
+          </Route>
+          <Route path='/auth' exact component={Auth}>
+            <Auth />
+          </Route>
+        </Switch>
+      </Router>
+    </ThemeProvider>
+  );
 }
- 
+
 export default App;
