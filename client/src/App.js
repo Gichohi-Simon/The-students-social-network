@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Landing from "../src/components/Landing/Landing";
 import Auth from "../src/components/Auth/Auth";
+import Home from "../src/components/Home/Home";
 
 import "./App.css";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
@@ -27,11 +28,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
-          <Route path='/' exact component={Landing}>
+          <Route path="/" exact component={Landing}>
             <Landing />
           </Route>
-          <Route path='/auth' exact component={Auth}>
+          <Route path="/auth" exact component={Auth}>
             <Auth />
+          </Route>
+          <Route path="/newsfeed" exact component={Home}>
+            <Home />
           </Route>
         </Switch>
       </Router>

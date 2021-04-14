@@ -65,11 +65,13 @@ function Auth() {
                         </Grid>
 
                         <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+                            <Link to='/newsfeed'> 
                             {isSignUp ? 'Sign Up' : 'Sign In'}
+                            </Link>
                         </Button>
 
                         <Grid container>
-                            <Button onClick={switchMode} align="center" color="primary">
+                            <Button onClick={switchMode} align="center" color="primary" fullWidth>
                                 {isSignUp ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}
                             </Button>
                         </Grid>
