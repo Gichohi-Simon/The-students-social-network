@@ -5,7 +5,7 @@ require('dotenv/config');
 const app = express();
 const postRoutes = require('./routes/posts');
 
-app.use(express.json({limits:"30mb",extended:true}))
+app.use(express.json({limit:"30mb",extended:true}))
 app.use(express.urlencoded({limit:"30mb",extended:true}))
 app.use(cors());
 app.use('/posts',postRoutes);
