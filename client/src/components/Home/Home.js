@@ -3,7 +3,7 @@ import useStyles from "./style";
 import { makeStyles } from "@material-ui/core/styles";
 import Form from "../Form/Form";
 import Post from "../Posts/Post/Post";
-import image from '../../images/beach1.jpg';
+import image from '../../images/person.jpg';
 
 import { AppBar } from "@material-ui/core";
 import { Toolbar } from "@material-ui/core";
@@ -23,11 +23,17 @@ import PostAddIcon from '@material-ui/icons/PostAdd';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 
 function Home() {
-  const drawerWidth = 240;
+  const drawerWidth = 400;
 
   const useStyles = makeStyles((theme) => ({
     root: {
       display: "flex",
+      overflow:'hidden'
+    },
+    title:{
+      display:'flex',
+      justifyContent:'center',
+      alignItems:'center'
     },
     appBar: {
       width: `calc(100% - ${drawerWidth}px)`,
@@ -42,11 +48,23 @@ function Home() {
     },
     // necessary for content to be below app bar
     toolbar: theme.mixins.toolbar,
+    // toolbarFlex:{
+    //   display: 'flex',
+    //   justifyContent: 'flexEnd'
+    // },
     content: {
       flexGrow: 1,
       backgroundColor: theme.palette.background.default,
       padding: theme.spacing(3),
     },
+    avatar:{
+      width:theme.spacing(7),
+      height:theme.spacing(7),
+      position:'absolute',
+      right:'10px',
+      top:'5px'
+     
+    }
   }));
 
   const classes = useStyles();
@@ -54,9 +72,9 @@ function Home() {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar>
+        <Toolbar className={classes.toolbarFlex}>
           <Typography variant="h6" noWrap>
-            <Avatar src={image}/>
+            <Avatar  src={image} className={classes.avatar}/>
           </Typography>
         </Toolbar>
       </AppBar>
@@ -69,6 +87,9 @@ function Home() {
         anchor="left"
       >
         <div className={classes.toolbar} />
+        <Typography variant="h4" color="primary" className={classes.title}>
+            Social Network
+        </Typography>
         <Divider />
         <List>
           <ListItem >
