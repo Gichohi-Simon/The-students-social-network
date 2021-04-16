@@ -5,6 +5,7 @@ import useStyles from "./styles";
 import { Button } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 const Form = () => {
   const classes = useStyles();
@@ -65,7 +66,7 @@ const Form = () => {
 
         <div className={classes.textButton}>
           <Button variant="contained" color="primary" size="large" type="submit">
-            Submit
+            Post
           </Button>
         </div>
       </form>

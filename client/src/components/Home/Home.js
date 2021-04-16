@@ -90,7 +90,7 @@ function Home() {
         <Typography variant="h4" color="primary" className={classes.title}>
             Social Network
         </Typography>
-        <Divider />
+        {/* <Divider /> */}
         <List>
           <ListItem >
             <ListItemIcon >
@@ -117,7 +117,7 @@ function Home() {
             <ListItemText primary="Notification" />
           </ListItem>
         </List>
-        <Divider />
+        {/* <Divider /> */}
         <List>
           <ListItem></ListItem>
         </List>
