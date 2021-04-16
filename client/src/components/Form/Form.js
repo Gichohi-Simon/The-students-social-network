@@ -41,11 +41,15 @@ const Form = ({currentId, setCurrentId}) => {
             </Typography>
                 <form autoComplete="off" noValidate className={classes.form} onSubmit={handleSubmit}>
                     <div className={classes.textField}>
-                    <TextField name="name" label="title" variant="filled" color="primary" fullWidth value={postData.name} onChange={(e) => setPostData({ ...postData, name: e.target.value })} />
+                    <TextField name="name" label="name" variant="filled" color="primary" fullWidth value={postData.name} onChange={(e) => setPostData({ ...postData, name: e.target.value })} />
                     </div>
                     
                     <div className={classes.textField}>
-                    <TextField name="title" label="message" variant="outlined" color="primary" fullWidth multiline  rows={4} value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
+                    <TextField name="title" label="title" variant="outlined" color="primary" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
+                    </div>
+
+                    <div className={classes.textField}>
+                    <TextField name="message" label="message" variant="outlined" color="primary" fullWidth multiline  rows={4} value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })} />
                     </div>
 
                     <div className={classes.textField}>
@@ -69,6 +73,10 @@ const Form = ({currentId, setCurrentId}) => {
                         </Button>
                     </div>
 
+                    {postData.name}
+                    {postData.title}
+                    {postData.message}
+                    {postData.tags}
                 </form>
             </Paper>
         </div>
