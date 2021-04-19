@@ -11,10 +11,15 @@ import {createPost} from '../../actions/posts'
 const Form = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const post = useSelector(state => state.posts)
 
   const [postData,setPostData] = useState({
     name:'', title:'',message:'',tags:'',selectedFile:'',
   })
+
+  useEffect(()=> {
+    if(post) setPostData(post);
+  },[post])
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -1,10 +1,11 @@
-import React from "react";
-import useStyles from "./style";
-import { makeStyles } from "@material-ui/core/styles";
+import React,{useState,useEffect} from "react";
 import Form from "../Form/Form";
 import Post from "../Posts/Post/Post";
-import image from '../../images/person.jpg';
+// import {useDispatch} from 'react-redux'
 
+
+import { makeStyles } from "@material-ui/core/styles";
+import image from '../../images/person.jpg';
 import { AppBar } from "@material-ui/core";
 import { Toolbar } from "@material-ui/core";
 import { Avatar } from "@material-ui/core";
@@ -14,13 +15,12 @@ import { ListItem } from "@material-ui/core";
 import { ListItemIcon } from "@material-ui/core";
 import { ListItemText } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
-import { Divider } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import { CssBaseline } from "@material-ui/core";
-
 import PersonIcon from '@material-ui/icons/Person';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
+// import { getPosts } from "../../actions/posts";
 
 function Home() {
   const drawerWidth = 400;
@@ -68,6 +68,12 @@ function Home() {
   }));
 
   const classes = useStyles();
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(getPosts());
+  // },[dispatch])
+
   return (
     <div className={classes.root}>
       <CssBaseline />
