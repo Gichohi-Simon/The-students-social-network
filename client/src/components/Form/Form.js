@@ -12,7 +12,6 @@ const Form = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const post = useSelector(state => state.posts)
-
   const [postData,setPostData] = useState({
     name:'', title:'',message:'',tags:'',selectedFile:'',
   })
@@ -22,7 +21,7 @@ const Form = () => {
   },[post])
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault();  
     dispatch(createPost(postData));
     }
 

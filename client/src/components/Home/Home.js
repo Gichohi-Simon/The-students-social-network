@@ -1,8 +1,6 @@
-import React,{useState,useEffect} from "react";
+import React from "react";
 import Form from "../Form/Form";
-import Post from "../Posts/Post/Post";
-// import {useDispatch} from 'react-redux'
-
+import Posts from "../Posts/Posts";
 
 import { makeStyles } from "@material-ui/core/styles";
 import image from '../../images/person.jpg';
@@ -20,11 +18,11 @@ import { CssBaseline } from "@material-ui/core";
 import PersonIcon from '@material-ui/icons/Person';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
-// import { getPosts } from "../../actions/posts";
+import { Link } from "react-router-dom"
 
 function Home() {
-  const drawerWidth = 400;
-
+  const drawerWidth = 240;
+ 
   const useStyles = makeStyles((theme) => ({
     root: {
       display: "flex",
@@ -68,12 +66,7 @@ function Home() {
   }));
 
   const classes = useStyles();
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getPosts());
-  // },[dispatch])
-
+  
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -98,6 +91,14 @@ function Home() {
         </Typography>
         {/* <Divider /> */}
         <List>
+          <ListItem >
+            <Link to='/'>
+            <ListItemIcon >
+              <HomeIcon color="primary"/>
+            </ListItemIcon>
+            <ListItemText primary="Home" />
+            </Link>
+          </ListItem>
           <ListItem >
             <ListItemIcon >
               <HomeIcon color="primary"/>
@@ -131,7 +132,7 @@ function Home() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Form />
-        <Post />
+        <Posts />
       </main>
     </div>
   );
