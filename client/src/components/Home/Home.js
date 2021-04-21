@@ -1,6 +1,8 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import Form from "../Form/Form";
 import Posts from "../Posts/Posts";
+
+import {useDispatch} from 'react-redux';
 
 import { makeStyles } from "@material-ui/core/styles";
 import image from '../../images/person.jpg';
@@ -19,6 +21,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import { Link } from "react-router-dom"
+import { getPosts } from "../../actions/posts";
 
 function Home() {
   const drawerWidth = 240;
@@ -66,6 +69,11 @@ function Home() {
   }));
 
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPosts());
+  },[dispatch])
   
   return (
     <div className={classes.root}>
