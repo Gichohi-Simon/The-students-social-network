@@ -6,24 +6,35 @@ import { Button } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
 import {useDispatch,useSelector} from 'react-redux';
-import {createPost} from '../../actions/posts'
+import {createPost,updatePost} from '../../actions/posts'
 
-const Form = () => {
-  const classes = useStyles();
-  const dispatch = useDispatch();
-  const post = useSelector(state => state.posts)
+const Form = ({currentId,setCurrentId}) => {
   const [postData,setPostData] = useState({
     name:'', title:'',message:'',tags:'',selectedFile:'',
   })
-
+  const classes = useStyles();
+  const dispatch = useDispatch();
+  //populates the form with the id selected.
+  const post = useSelector((state) => currentId? state.posts.find((p) => p._id === currentId):null);
+  
   useEffect(()=> {
     if(post) setPostData(post);
   },[post])
 
   const handleSubmit = async (e) => {
     e.preventDefault();  
-    dispatch(createPost(postData));
+    if(currentId === 0 ){
+      dispatch(createPost(postData));
+    }else{
+      dispatch(updatePost(currentId,{postData}))
     }
+    clear();
+  }
+
+  const clear = () => {
+    setCurrentId(null);
+    setPostData({name:'', title:'',message:'',tags:'',selectedFile:''});
+  }
 
   return (
     <div className={classes.main}>
@@ -90,7 +101,7 @@ const Form = () => {
         </div>
 
         <div className={classes.textButton}>
-          <Button variant="contained" color="primary" size="large" type="submit">
+          <Button variant="contained" color="primary" size="large" type="submit" >
             Post
           </Button>
         </div>

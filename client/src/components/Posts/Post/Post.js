@@ -13,7 +13,7 @@ import CommentIcon from "@material-ui/icons/Comment";
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import { Avatar } from "@material-ui/core";
 
-const Post = ({ post }) => {
+const Post = ({ post,setCurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
@@ -28,7 +28,7 @@ const Post = ({ post }) => {
               <Typography variant="body2">{post.title}</Typography>
             </div>
             <div className={classes.edit}>
-                <Button size="medium">
+                <Button size="medium" onClick={()=>{setCurrentId(post._id)}}> 
                 <MoreHorizIcon color="primary"/>
                 </Button>
             </div>

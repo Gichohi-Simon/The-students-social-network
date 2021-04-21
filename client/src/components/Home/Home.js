@@ -24,8 +24,7 @@ import { Link } from "react-router-dom"
 import { getPosts } from "../../actions/posts";
 
 function Home() {
-  const drawerWidth = 240;
- 
+ const drawerWidth = 240;
   const useStyles = makeStyles((theme) => ({
     root: {
       display: "flex",
@@ -69,11 +68,12 @@ function Home() {
   }));
 
   const classes = useStyles();
+  const [currentId,setCurrentId] = useState(null);
   const dispatch = useDispatch();
-
+  
   useEffect(() => {
     dispatch(getPosts());
-  },[dispatch])
+  },[currentId,dispatch])
   
   return (
     <div className={classes.root}>
@@ -139,8 +139,8 @@ function Home() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Form />
-        <Posts />
+        <Form currentId={currentId} setCurrentId={setCurrentId}/>
+        <Posts setCurrentId={setCurrentId}/>
       </main>
     </div>
   );
