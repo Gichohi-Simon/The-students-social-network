@@ -48,3 +48,15 @@ module.exports.deletePost = async(req,res) => {
 
 }
 
+module.exports.likePost = async(req,res) => {
+    const {id:_id} = req.params;
+
+    if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send(`No post with that id:${_id}`);
+
+    const post = await PostMessage.findById(_id);
+
+    const updatedPost = await PostMessage.findByIdAndUpdate(_id,{likeCount:post.likeCount + 1},{new:true});
+
+    res.json(updatedPost);
+
+}
