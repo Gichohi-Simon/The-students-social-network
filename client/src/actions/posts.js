@@ -1,4 +1,4 @@
-import {FETCH_ALL,CREATE,UPDATE} from '../constants/actionTypes'
+import {FETCH_ALL,CREATE,UPDATE,DELETE} from '../constants/actionTypes'
 import * as api from '../api';
 
 export const getPosts = () => async(dispatch) => {
@@ -25,5 +25,14 @@ export const updatePost = (id,post) => async(dispatch) =>{
         dispatch({type:UPDATE,payload:data});
     }catch(err){
         console.log(err.message)
+    }
+}
+
+export const deletePost = (id) => async(dispatch) =>{
+    try{
+        await api.deletePost(id);
+        dispatch({type:DELETE,payload:id});
+    }catch(err){
+        console.log(err);
     }
 }

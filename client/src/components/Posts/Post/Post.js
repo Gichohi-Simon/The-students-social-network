@@ -1,6 +1,9 @@
 import React from "react";
 import useStyles from "./styles";
 import { useDispatch } from "react-redux";
+
+import {deletePost} from '../../../actions/posts'
+
 import { Card } from "@material-ui/core";
 import { CardMedia } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
@@ -54,7 +57,7 @@ const Post = ({ post,setCurrentId }) => {
           </Button>
           <Button size="medium" color="primary">
             &nbsp;
-            <DeleteIcon fontSize="small" />
+            <DeleteIcon fontSize="small" onClick={() => dispatch(deletePost(post._id))}/>
           </Button>
         </CardActions>
       </Card>
