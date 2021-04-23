@@ -2,7 +2,6 @@ import {makeStyles} from '@material-ui/core/styles'
 
 export default makeStyles((theme) =>({
     main:{
-        width:'100%',
         diplay:'flex',
         justifyContent:'center',
     },
@@ -34,7 +33,6 @@ export default makeStyles((theme) =>({
         left:'10px'
     },
     media: {
-        height:'60%',
         paddingTop: '56.25%',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         backgroundBlendMode: 'darken',

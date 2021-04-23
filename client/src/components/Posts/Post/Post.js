@@ -61,7 +61,6 @@ const Post = ({ post, setCurrentId }) => {
           <Button size="medium" color="primary">
             <CommentIcon fontSize="small" />
             &nbsp;
-            {post.likeCount}
           </Button>
           <Button size="medium" color="primary">
             &nbsp;

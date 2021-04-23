@@ -22,9 +22,10 @@ import PostAddIcon from '@material-ui/icons/PostAdd';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import { Link } from "react-router-dom"
 import { getPosts } from "../../actions/posts";
+import { Grid } from "@material-ui/core";
 
 function Home() {
- const drawerWidth = 240;
+ const drawerWidth = 400;
   const useStyles = makeStyles((theme) => ({
     root: {
       display: "flex",
@@ -64,7 +65,7 @@ function Home() {
       right:'10px',
       top:'5px'
      
-    }
+    },
   }));
 
   const classes = useStyles();
@@ -139,8 +140,10 @@ function Home() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
+        <div className={classes.newsfeed}>
         <Form currentId={currentId} setCurrentId={setCurrentId}/>
         <Posts setCurrentId={setCurrentId}/>
+        </div>
       </main>
     </div>
   );
