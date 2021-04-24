@@ -41,10 +41,8 @@ export default makeStyles((theme) =>({
         diplay:'flex',
         justifyContent:'space-between'
     },
-    // comments:{
-    //     borderRadius:'15px',
-    //     diplay:'flex',
-    //     justifyContent:'center',
-    //     alignItems:'center'
-    // }
+    comments:{
+        alignItems:'center',
+    }
+   
 }))
