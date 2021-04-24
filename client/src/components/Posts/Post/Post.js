@@ -15,6 +15,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import CommentIcon from "@material-ui/icons/Comment";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { Avatar } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
@@ -49,6 +50,15 @@ const Post = ({ post, setCurrentId }) => {
             {post.tags.map((tag) => `#${tag}`)}
           </Typography>
         </CardContent>
+        {/* <TextField  className={classes.comments}
+          name="comment"
+          label="comment"
+          variant="outlined"
+          color="primary"
+          fullWidth
+          center
+          >
+          </TextField> */}
         <CardActions className={classes.cardActions}>
           <Button size="medium" color="primary">
             <ThumbUpAlt

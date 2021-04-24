@@ -40,5 +40,11 @@ export default makeStyles((theme) =>({
     cardActions:{
         diplay:'flex',
         justifyContent:'space-between'
-    }
+    },
+    // comments:{
+    //     borderRadius:'15px',
+    //     diplay:'flex',
+    //     justifyContent:'center',
+    //     alignItems:'center'
+    // }
 }))
