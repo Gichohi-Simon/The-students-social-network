@@ -3,9 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Landing from "../src/components/Landing/Landing";
 import Auth from "../src/components/Auth/Auth";
 import Home from "../src/components/Home/Home";
+import Profiles from "../src/components/Profiles/Profiles";
 
 import "./App.css";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+
 
 const theme = createMuiTheme({
   palette: {
@@ -36,6 +38,9 @@ function App() {
           </Route>
           <Route path="/newsfeed" exact component={Home}>
             <Home />
+          </Route>
+          <Route path="/profile" exact component={Profiles}>
+            <Profiles />
           </Route>
         </Switch>
       </Router>

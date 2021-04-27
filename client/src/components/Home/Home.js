@@ -22,7 +22,6 @@ import PostAddIcon from '@material-ui/icons/PostAdd';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import { Link } from "react-router-dom"
 import { getPosts } from "../../actions/posts";
-import { Grid } from "@material-ui/core";
 
 function Home() {
  const drawerWidth = 400;
@@ -101,30 +100,36 @@ function Home() {
         {/* <Divider /> */}
         <List>
           <ListItem >
-            <Link to='/'>
             <ListItemIcon >
               <HomeIcon color="primary"/>
             </ListItemIcon>
+            <Link to='/'>
             <ListItemText primary="Home" />
             </Link>
           </ListItem>
-          <ListItem >
-            <ListItemIcon >
+          <ListItem>
+            <ListItemIcon>
               <HomeIcon color="primary"/>
             </ListItemIcon>
+            <Link to='/newsfeed'>
             <ListItemText primary="Newsfeed" />
+            </Link>
           </ListItem>
           <ListItem >
-            <ListItemIcon >
+            <ListItemIcon>
               <PostAddIcon color="primary"/>
             </ListItemIcon>
+            <Link to='/newsfeed'>
             <ListItemText primary="New Post" />
+            </Link>
           </ListItem>
           <ListItem >
-            <ListItemIcon >
+            <ListItemIcon>
               <PersonIcon color="primary"/>
             </ListItemIcon>
+            <Link to='/profile'>
             <ListItemText primary="Profile" />
+            </Link>
           </ListItem>
           <ListItem >
             <ListItemIcon >
@@ -148,5 +153,6 @@ function Home() {
     </div>
   );
 }
+
 export default Home;
 
