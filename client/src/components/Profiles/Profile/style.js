@@ -8,10 +8,11 @@ export default makeStyles((theme) => ({
     },
     main:{
         width:'80%',
-        height:'auto',   
+        height:'420px',   
     },
     cardMedia:{
-        height:'400px',
+        height:'420px',
+        width:'auto'
     },
     cardActions:{
 
@@ -31,9 +32,22 @@ export default makeStyles((theme) => ({
     },
     grid:{
 
+        margin:'20px',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+    },
+    gridCard:{
+
     },
     gridItem:{
+        padding:'20px',
+        margin:'20px',
+        height:'400px',
+        width:'400px'
+    },
+    gridImage:{
         height:'200px',
-        width:'200px'
+        width:'400px'
     }
 }))
