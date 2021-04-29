@@ -20,11 +20,12 @@ import { CssBaseline } from "@material-ui/core";
 import PersonIcon from '@material-ui/icons/Person';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
+import AirplayIcon from '@material-ui/icons/Airplay';
 import { Link } from "react-router-dom"
 import { getPosts } from "../../actions/posts";
 
 function Home() {
- const drawerWidth = 400;
+ const drawerWidth = 240;
   const useStyles = makeStyles((theme) => ({
     root: {
       display: "flex",
@@ -109,7 +110,7 @@ function Home() {
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <HomeIcon color="primary"/>
+              <AirplayIcon color="primary"/>
             </ListItemIcon>
             <Link to='/newsfeed'>
             <ListItemText primary="Newsfeed" />

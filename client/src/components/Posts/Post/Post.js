@@ -51,7 +51,7 @@ const Post = ({ post, setCurrentId }) => {
           </Typography>
         </CardContent>
         <div className={classes.comments}>
-        <Comment />
+        {/* <Comment /> */}
         </div>
         <CardActions className={classes.cardActions}>
           <Button size="medium" color="primary">

@@ -7,47 +7,27 @@ export default makeStyles((theme) => ({
         alignItems:'center',
     },
     main:{
-        width:'80%',
+        width:'70%',
         height:'420px',   
     },
     cardMedia:{
         height:'420px',
         width:'auto'
     },
-    cardActions:{
-
+    edit:{
+        margin:'20px',
     },
     avatar:{
-        width:theme.spacing(21),
-        height:theme.spacing(21),
+        width:theme.spacing(25),
+        height:theme.spacing(25),
         position:'relative',
-        left:'40px',
-        top:'-100px'
+        left:'900px',
+        top:'270px',
+        // border:'solid 3px lightblue'
+        // background:'linear-gradient( rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)'
     },
-    CardActionsContent:{
-        
-    },
-    button:{
-        
-    },
-    grid:{
-
-        margin:'20px',
-        display:'flex',
-        alignItems:'center',
-        justifyContent:'center',
-    },
-    gridCard:{
-
-    },
-    gridItem:{
-        padding:'20px',
-        margin:'20px',
-        height:'400px',
-        width:'400px'
-    },
-    gridImage:{
-        height:'200px',
-        width:'400px'
+    profile:{
+        padding:'30px'
     }
+
 }))

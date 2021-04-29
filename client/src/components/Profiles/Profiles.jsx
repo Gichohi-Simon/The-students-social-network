@@ -1,13 +1,13 @@
-import { Grid } from '@material-ui/core';
 import React from 'react';
 import Profile from './Profile/Profile';
+import { Grid } from '@material-ui/core';
 
 const Profiles = () => {
     return ( 
-        <div>
-            <Grid>
+        <div className="root">
+            
             <Profile />
-            </Grid>
+            
         </div>
      );
 }

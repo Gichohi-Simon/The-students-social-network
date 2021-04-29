@@ -1,66 +1,72 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardMedia, CardActions, Grid, Button } from "@material-ui/core";
 import image from "../../../images/code.jpg";
 import image1 from "../../../images/person.jpg";
-import image2 from "../../../images/mountain.jpg";
-import image3 from "../../../images/camera.jpg";
 import { Avatar } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
 import useStyles from "./style";
+import { Paper } from "@material-ui/core";
 
 const Profile = () => {
+  const [profile, setProfile] = useState(true);
   const classes = useStyles();
+
+  function editProfile(){
+    setProfile(false);
+  }
 
   return (
     <div className={classes.root}>
       <div className={classes.main}>
+        {profile ? <>Hello</> : <>Bye</>}
+
         <Card>
-          <CardMedia image={image} className={classes.cardMedia}></CardMedia>
-          <hr />
-          <CardActions className={classes.CardActions}>
+          <CardMedia image={image} className={classes.cardMedia}>
+            <Button
+              onClick={editProfile}
+              variant="outlined"
+              size="small"
+              color="primary"
+              className={classes.edit}
+            >
+              <MoreHorizIcon />
+            </Button>
             <div>
               <Avatar src={image1} className={classes.avatar} />
             </div>
+          </CardMedia>
+          <CardActions className={classes.CardActions}></CardActions>
 
-            <div className={classes.CardActionsContent}>
-                <Typography variant="h6">50 posts 500 followers 120 following</Typography>
-              </div>
-            <div className={classes.button}>
-              <Button variant="contained" color="primary">
-                Edit Profile
-              </Button>
+          <Paper className={classes.profile}>
+            <div className={classes.occupation}>
+              <Typography variant="h4" color="primary">
+                Software Engineer
+              </Typography>
             </div>
-          </CardActions>
+
+            <div className={classes.education}>
+              <Typography variant="h5" color="primary">
+                Jomo Kenyatta University of Agriculture and Technology
+              </Typography>
+            </div>
+
+            <div className={classes.hobbies}>
+              <Typography variant="h6" color="primary">
+                Karate, Swimming, Programming
+              </Typography>
+            </div>
+
+            <div className={classes.location}>
+              <LocationOnIcon color="primary" />
+              <Typography variant="h6" color="primary">
+                Nairobi
+              </Typography>
+            </div>
+          </Paper>
         </Card>
-
-        <Grid className={classes.grid} 
-          direction="row"
-          justify="center"
-          alignItems="center"
-        > 
-          <Grid item className={classes.gridItem}  xs={12} md={6} lg={3}>
-            <Card className={classes.gridCard} >
-                <CardMedia image={image} className={classes.gridImage}>
-                </CardMedia>
-            </Card>
-          </Grid>
-
-          <Grid item className={classes.gridItem}  xs={12} md={6} lg={3}>
-            <Card className={classes.gridCard}>
-                <CardMedia image={image2} className={classes.gridImage}>
-                </CardMedia>
-            </Card>
-          </Grid>
-
-          <Grid item className={classes.gridItem}  xs={12} md={6} lg={3}>
-            <Card className={classes.gridCard}>
-                <CardMedia image={image3} className={classes.gridImage}>
-                </CardMedia>
-            </Card>
-          </Grid>
-          
-        </Grid>
       </div>
     </div>
   );
