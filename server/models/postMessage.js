@@ -7,7 +7,7 @@ const postSchema = mongoose.Schema({
     tags:[String],
     //convert img to string fb64.
     selectedFile:String,
-    likeCount:{
+    likes:{
         type:[String],
         default:[]
     },

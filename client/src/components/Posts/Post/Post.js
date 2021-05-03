@@ -10,17 +10,33 @@ import { Typography } from "@material-ui/core";
 import { CardContent } from "@material-ui/core";
 import { CardActions } from "@material-ui/core";
 import { Button } from "@material-ui/core";
-import { ThumbUpAlt } from "@material-ui/icons";
 import DeleteIcon from "@material-ui/icons/Delete";
 import CommentIcon from "@material-ui/icons/Comment";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { Avatar } from "@material-ui/core";
 import Comment from "../../Comment/Comment";
+import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+import { ThumbUpAltOutlined } from "@material-ui/icons";
 
 const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const user = JSON.parse(localStorage.getItem('profile'));
 
+  const Likes = () => {
+    if (post.likes.length > 0) {
+      return post.likes.find((like) => like === (user?.result?.googleId || user?.result?._id))
+        ? (
+          <><ThumbUpAltIcon fontSize="small" />&nbsp;{post.likes.length > 2 ? `You and ${post.likes.length - 1} others` : `${post.likes.length} like${post.likes.length > 1 ? 's' : ''}` }</>
+        ) : (
+          <><ThumbUpAltOutlined fontSize="small" />&nbsp;{post.likes.length} {post.likes.length === 1 ? 'Like' : 'Likes'}</>
+        );
+    }
+
+    return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>;
+  };
+
+  
   return (
     <div className={classes.main}>
       <Card className={classes.card}>
@@ -54,13 +70,8 @@ const Post = ({ post, setCurrentId }) => {
         {/* <Comment /> */}
         </div>
         <CardActions className={classes.cardActions}>
-          <Button size="medium" color="primary">
-            <ThumbUpAlt
-              fontSize="small"
-              onClick={() => dispatch(likePost(post._id))}
-            />
-            &nbsp;
-            {post.likeCount}
+          <Button size="medium" color="primary" disabled={!user?.result} onClick={() => dispatch(likePost(post._id))}>
+           <Likes />
           </Button>
           <Button size="medium" color="primary">
             <CommentIcon fontSize="small" />

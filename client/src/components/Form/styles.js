@@ -25,6 +25,12 @@ export default makeStyles((theme) => ({
    textButton:{
     position:'relative',
     left:'400px'
+   },
+   loginPrompt:{
+       height:'100px',
+       width:'100%',
+       margin:'20px',
+       textAlign:'center'
    }
 }))
 
