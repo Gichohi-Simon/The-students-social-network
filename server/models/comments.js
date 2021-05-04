@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const commentSchema = mongoose.Schema({
-    message:String,
+  message: String,
 });
 
-const CommentMessage = mongoose.model('CommentMessage',commentSchema);
+const CommentMessage = mongoose.model("CommentMessage", commentSchema);
 module.exports = CommentMessage;

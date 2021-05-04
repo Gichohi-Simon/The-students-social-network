@@ -19,14 +19,15 @@ export default makeStyles((theme) =>({
     headerContainer:{
         padding:'20px',
         display:'flex',
+        justifyContent:'space-between'
     },
     avatar:{
         width:theme.spacing(7),
         height:theme.spacing(7),
       },
     headerContent:{
-        marign:'30px',
-        padding:'30px'
+        // marign:'20px',
+        // padding:'30px'
     },
     edit:{
         position:'relative',

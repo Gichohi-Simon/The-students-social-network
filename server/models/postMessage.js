@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const postSchema = mongoose.Schema({
-    title:String,
+    // title:String,
     message:String,
     name:String,
+    creator:String,
     tags:[String],
     //convert img to string fb64.
     selectedFile:String,

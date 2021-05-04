@@ -22,10 +22,10 @@ export default makeStyles((theme) => ({
    text:{
        width:'100%'
    },
-   textButton:{
-    position:'relative',
-    left:'400px'
-   },
+//    textButton:{
+//     position:'relative',
+//     left:'400px'
+//    },
    loginPrompt:{
        height:'100px',
        width:'100%',

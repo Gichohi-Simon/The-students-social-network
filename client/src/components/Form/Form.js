@@ -13,10 +13,13 @@ const Form = ({currentId,setCurrentId}) => {
   const [postData,setPostData] = useState({
     title:'',message:'',tags:'',selectedFile:'',
   })
-  const classes = useStyles();
-  const dispatch = useDispatch();
+
   //populates the form with the id selected.
   const post = useSelector((state) => (currentId? state.posts.find((message) => message._id === currentId):null));
+
+  const classes = useStyles();
+  const dispatch = useDispatch();
+
   const user = JSON.parse(localStorage.getItem('profile'));
   
   useEffect(()=> {
@@ -33,7 +36,6 @@ const Form = ({currentId,setCurrentId}) => {
     if(currentId){
       dispatch(updatePost(currentId,{...postData, name:user?.result?.name}))
       clear();
-
     }else{
       dispatch(createPost({...postData, name:user?.result?.name}));
       clear();
@@ -54,7 +56,7 @@ const Form = ({currentId,setCurrentId}) => {
     <div className={classes.main}>
     <Paper className={classes.paper} elevation={3}>
     <form className={classes.form} onSubmit={handleSubmit}>
-        <div className={classes.textField}>
+        {/* <div className={classes.textField}>
           <TextField
             name="title"
             label="Title"
@@ -65,12 +67,12 @@ const Form = ({currentId,setCurrentId}) => {
             value={postData.title}
             onChange={(e) => setPostData({...postData,title:e.target.value})}
           />
-        </div>
+        </div> */}
 
         <div className={classes.textField}>
           <TextField
             name="message"
-            label="Message"
+            label="Write your post"
             variant="outlined"
             color="primary"
             required
