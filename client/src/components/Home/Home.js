@@ -5,6 +5,7 @@ import Posts from "../Posts/Posts";
 import {useDispatch} from 'react-redux';
 import { Link, useHistory,useLocation } from "react-router-dom"
 import {LOGOUT} from '../../constants/actionTypes';
+import decode from 'jwt-decode';
 
 import { makeStyles } from "@material-ui/core/styles";
 import image from '../../images/person.jpg';
@@ -103,9 +104,17 @@ function Home() {
   
   useEffect(() => {
     const token = user?.token;
+
+    if(token){
+      const decodedToken = decode(token);
+
+      if(decodedToken.exp * 1000 < new Date().getTime()) logout();
+    }
+
+
     setUser(JSON.parse(localStorage.getItem('profile')))
 
-  },[user?.token])
+  },[location])
 
   useEffect(() => {   
     dispatch(getPosts());

@@ -47,7 +47,16 @@ const Post = ({ post, setCurrentId }) => {
               <Typography variant="h6">{post.name}</Typography>
               <Typography variant="body2">{post.title}</Typography>
             </div>
-            <div className={classes.edit}>
+            {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
+                 <div className={classes.overlay2}>
+                 <Button onClick={() => setCurrentId(post._id)} style={{ color: 'white' }} size="small">
+                   <MoreHorizIcon fontSize="default" />
+                 </Button>
+               </div>
+      )}
+      
+
+            {/* <div className={classes.edit}>
               <Button
                 size="medium"
                 onClick={() => {
@@ -56,7 +65,7 @@ const Post = ({ post, setCurrentId }) => {
               >
                 <MoreHorizIcon color="primary" />
               </Button>
-            </div>
+            </div> */}
           </div>
         </div>
         <CardMedia className={classes.media} image={post.selectedFile} />
@@ -77,6 +86,11 @@ const Post = ({ post, setCurrentId }) => {
             <CommentIcon fontSize="small" />
             &nbsp;
           </Button>
+          {/* {(user?.result?.googleId === post?.name || user?.result?._id === post?.name) && (
+        <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}>
+          <DeleteIcon fontSize="small" /> Delete
+        </Button>
+        )} */}
           <Button size="medium" color="primary">
             &nbsp;
             <DeleteIcon
