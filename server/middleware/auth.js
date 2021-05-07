@@ -1,16 +1,21 @@
-//verifies all oour tokens for liking deleteing etc.
+//verifies all our tokens for liking deleteing etc.
 const jwt = require('jsonwebtoken')
 
-const auth = async(req,res,next) => {
+
+// module.exports  = function(req,res,next)  {
+const auth = (req,res,next) => {
     try{
-        // console.log(req.headers);
-        const token =  await req.headers.authorization.split('')[1];
-        const isCustomAuth = await token.length < 500;
+        console.log(req.headers);
+        const token =  req.headers.authorization.split('')[1];
+        const isCustomAuth =  token.length < 500;
+
+        if(!token)
+        res.status(401).json({msg:"no authentication token, access denied"});
 
         let decodedData;
-        
+
         if(token && isCustomAuth){
-            decodedData = await jwt.sign(token,'test');
+            decodedData =  jwt.sign(token,'test');
             req.userId = decodedData?.id;
             console.log(decodedData);
         }else{
@@ -19,6 +24,7 @@ const auth = async(req,res,next) => {
         }
         next();
     }catch(err){
+        res.status(500).json({error:err.message});
         console.log(err);
     }
 }

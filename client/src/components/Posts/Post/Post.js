@@ -23,6 +23,7 @@ const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
+  console.log({user});
 
   const Likes = () => {
     if (post.likes.length > 0) {
@@ -62,10 +63,11 @@ const Post = ({ post, setCurrentId }) => {
               </Typography>
             </div>
 
-            {(user?.result?.googleId === post?.creator ||
-              user?.result?._id === post?.creator) && (
+            {(user?.result?.name === post?.name ||
+              user?.result?.name === post?.name) && (
               <div className={classes.edit}>
                 <Button
+                  disabled={!user?.result}
                   variant="outlined"
                   onClick={() => setCurrentId(post._id)}
                   size="small"
@@ -93,24 +95,17 @@ const Post = ({ post, setCurrentId }) => {
             disabled={!user?.result}
             onClick={() => dispatch(likePost(post._id))}
           >
-            <Likes />
+            <Likes>{post.likes}</Likes>
           </Button>
-          <Button size="medium" color="primary">
+          <Button size="medium" color="primary" disabled={!user?.result}>
             <CommentIcon fontSize="small" />
             &nbsp;
           </Button>
-          {(user?.result?.googleId === post?.name || user?.result?._id === post?.name) && (
-        <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}>
+          {(user?.result?.name === post?.name || user?.result?.name === post?.name) && (
+        <Button size="small" color="primary"   disabled={!user?.result} onClick={() => dispatch(deletePost(post._id))}>
           <DeleteIcon fontSize="small" /> Delete
         </Button>
         )}
-          {/* <Button size="medium" color="primary">
-            &nbsp;
-            <DeleteIcon
-              fontSize="small"
-              onClick={() => dispatch(deletePost(post._id))}
-            />
-          </Button> */}
         </CardActions>
       </Card>
     </div>
