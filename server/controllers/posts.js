@@ -89,7 +89,9 @@ module.exports.likePost = async(req,res) => {
     // const updatedPost = await PostMessage.findByIdAndUpdate(_id, post, { new: true });
     // res.status(200).json(updatedPost);
 
-    const updatedPost = await PostMessage.findByIdAndUpdate(id,{likes:post.likes + 1},{new:true});
+    // const updatedPost = await PostMessage.findByIdAndUpdate(id,{likes:post.likes + 1},{new:true});
+
+    const updatedPost = await PostMessage.findByIdAndUpdate(id,{likeCount:post.likeCount + 1},{new:true});
     res.json(updatedPost);
 }
 

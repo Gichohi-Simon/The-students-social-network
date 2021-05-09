@@ -27,7 +27,9 @@ import AirplayIcon from '@material-ui/icons/Airplay';
 import { Button } from "@material-ui/core";
 
 import { getPosts } from "../../actions/posts";
-
+import {getComments} from '../../actions/comments'
+import CommentsDisplay from "../CommentsDisplay/CommentsDisplay"
+import Comment from '../Comment/Comment'
 
 
 function Home() {
@@ -119,6 +121,12 @@ function Home() {
   useEffect(() => {   
     dispatch(getPosts());
   },[currentId,dispatch])
+
+  useEffect(()=> {
+    dispatch(getComments())
+  })
+
+
   
   return (
     <div className={classes.root}>
@@ -206,6 +214,8 @@ function Home() {
         <div className={classes.newsfeed}>
         <Form currentId={currentId} setCurrentId={setCurrentId}/>
         <Posts setCurrentId={setCurrentId}/>
+        <Comment />
+        <CommentsDisplay />
         </div>
       </main>
     </div>
