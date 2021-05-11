@@ -19,8 +19,6 @@ import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import { ThumbUpAltOutlined } from "@material-ui/icons";
 
 const Post = ({ post,setCurrentId}) => {
-  console.log(post.title)
-  
   const classes = useStyles();
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
