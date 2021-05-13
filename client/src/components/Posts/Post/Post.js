@@ -127,7 +127,7 @@ const Post = ({ post, setCurrentId }) => {
               disabled={!user?.result}
               onClick={handleOpen}
             >
-              <CommentIcon fontSize="small"></CommentIcon>Comment
+              <CommentIcon fontSize="small"></CommentIcon> &nbsp;Comment 
               <Modal open={open} onClose={handleClose}>
                 <div style={modalStyle}>
                   <Paper className={classes.paper}>
