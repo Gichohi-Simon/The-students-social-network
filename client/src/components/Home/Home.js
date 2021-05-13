@@ -8,7 +8,6 @@ import {LOGOUT} from '../../constants/actionTypes';
 import decode from 'jwt-decode';
 
 import { makeStyles } from "@material-ui/core/styles";
-import image from '../../images/person.jpg';
 import { AppBar } from "@material-ui/core";
 import { Toolbar } from "@material-ui/core";
 import { Avatar } from "@material-ui/core";
@@ -28,9 +27,6 @@ import { Button } from "@material-ui/core";
 
 import { getPosts } from "../../actions/posts";
 import {getComments} from '../../actions/comments'
-import CommentsDisplay from "../CommentsDisplay/CommentsDisplay"
-import Comment from '../Comment/Comment'
-
 
 function Home() {
  const drawerWidth = 240;
@@ -116,7 +112,7 @@ function Home() {
 
     setUser(JSON.parse(localStorage.getItem('profile')))
 
-  },[location])
+  },[])
 
   useEffect(() => {   
     dispatch(getPosts());
@@ -126,8 +122,6 @@ function Home() {
     dispatch(getComments())
   })
 
-
-  
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -214,8 +208,6 @@ function Home() {
         <div className={classes.newsfeed}>
         <Form currentId={currentId} setCurrentId={setCurrentId}/>
         <Posts setCurrentId={setCurrentId}/>
-        <Comment />
-        <CommentsDisplay />
         </div>
       </main>
     </div>

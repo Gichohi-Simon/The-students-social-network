@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import useStyles from "./styles";
 import { useDispatch } from "react-redux";
 import moment from "moment";
 import { deletePost, likePost } from "../../../actions/posts";
+import Comment from "../../Comment/Comment";
+import CommentsDisplay from "../../CommentsDisplay/CommentsDisplay"
 
 import { Card } from "@material-ui/core";
 import { CardMedia } from "@material-ui/core";
@@ -15,13 +17,41 @@ import CommentIcon from "@material-ui/icons/Comment";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 // import { Avatar } from "@material-ui/core";
 import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
-import { ThumbUpAltOutlined } from "@material-ui/icons";
+import { Modal } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
+import CancelIcon from '@material-ui/icons/Cancel';
 
-const Post = ({ post,setCurrentId}) => {
+const Post = ({ post, setCurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
-  console.log(user.result.googleId );
+
+  // modal style
+
+  function rand() {
+    return Math.round(Math.random() * 20) - 10;
+  }
+
+  function getModalStyle() {
+    const top = 50 + rand();
+    const left = 50 + rand();
+
+    return {
+      top: `${top}%`,
+      left: `${left}%`,
+      transform: `translate(-${top}%, -${left}%)`,
+    };
+  }
+  const [modalStyle] = useState(getModalStyle);
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   // const Likes = () => {
   //   if (post.likes.length > 0) {
@@ -75,7 +105,9 @@ const Post = ({ post,setCurrentId}) => {
         </div>
         <CardMedia className={classes.media} image={post.selectedFile} />
         <CardContent className={classes.content}>
-          <Typography noWrap variant="body1">{post.message}</Typography>
+          <Typography noWrap variant="body1">
+            {post.message}
+          </Typography>
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Button
@@ -87,10 +119,30 @@ const Post = ({ post,setCurrentId}) => {
             {/* <Likes/> */}
             <ThumbUpAltIcon fontSize="small" /> Like {post.likeCount}
           </Button>
-          <Button size="medium" color="primary" disabled={!user?.result}>
-            <CommentIcon fontSize="small" />
-            &nbsp;
-          </Button>
+
+          <div>
+            <Button
+              size="medium"
+              color="primary"
+              disabled={!user?.result}
+              onClick={handleOpen}
+            >
+              <CommentIcon fontSize="small"></CommentIcon>Comment
+              <Modal open={open} onClose={handleClose}>
+                <div style={modalStyle}>
+                  <Paper className={classes.paper}>
+                  <Button onClick={handleClose}><CancelIcon /></Button>
+                    <div>
+                      <Comment />
+                      <CommentsDisplay />
+                    </div>
+                  </Paper>
+                </div>
+              </Modal>
+              &nbsp;
+            </Button>
+          </div>
+
           {(user?.result?.name === post?.name ||
             user?.result?.name === post?.name) && (
             <Button
@@ -103,7 +155,6 @@ const Post = ({ post,setCurrentId}) => {
             </Button>
           )}
         </CardActions>
-        
       </Card>
     </div>
   );
