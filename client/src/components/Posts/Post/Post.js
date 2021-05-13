@@ -2,7 +2,6 @@ import React from "react";
 import useStyles from "./styles";
 import { useDispatch } from "react-redux";
 import moment from "moment";
-
 import { deletePost, likePost } from "../../../actions/posts";
 
 import { Card } from "@material-ui/core";
@@ -22,26 +21,16 @@ const Post = ({ post,setCurrentId}) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("profile"));
-  console.log({ user });
+  console.log(user.result.googleId );
 
   // const Likes = () => {
   //   if (post.likes.length > 0) {
-  //     return post.likes.find(
-  //       (like) => like === (user?.result?.googleId || user?.result?._id)
-  //     ) ? (
-  //       <>
-  //         <ThumbUpAltIcon fontSize="small" />
-  //         &nbsp;
-  //         {post.likes.length > 2
-  //           ? `You and ${post.likes.length - 1} others`
-  //           : `${post.likes.length} like${post.likes.length > 1 ? "s" : ""}`}
-  //       </>
-  //     ) : (
-  //       <>
-  //         <ThumbUpAltOutlined fontSize="small" />
-  //         &nbsp;{post.likes.length} {post.likes.length === 1 ? "Like" : "Likes"}
-  //       </>
-  //     );
+  //     return post.likes.find((like) => like === (user?.result?.googleId || user?.result?._id))
+  //       ? (
+  //         <><ThumbUpAltIcon fontSize="small" />&nbsp;{post.likes.length > 2 ? `You and ${post.likes.length - 1} others` : `${post.likes.length} like${post.likes.length > 1 ? 's' : ''}` }</>
+  //       ) : (
+  //         <><ThumbUpAltOutlined fontSize="small" />&nbsp;{post.likes.length} {post.likes.length === 1 ? 'Like' : 'Likes'}</>
+  //       );
   //   }
 
   //   return (
@@ -58,7 +47,6 @@ const Post = ({ post,setCurrentId}) => {
         <div className={classes.header}>
           <div className={classes.headerContainer}>
             {/* <Avatar className={classes.avatar}></Avatar> */}
-
             <div className={classes.headerContent}>
               <Typography variant="h6">{post.name}</Typography>
               <Typography variant="body2">
@@ -87,7 +75,7 @@ const Post = ({ post,setCurrentId}) => {
         </div>
         <CardMedia className={classes.media} image={post.selectedFile} />
         <CardContent className={classes.content}>
-          <Typography variant="body1">{post.message}</Typography>
+          <Typography noWrap variant="body1">{post.message}</Typography>
         </CardContent>
         <CardActions className={classes.cardActions}>
           <Button
@@ -96,9 +84,8 @@ const Post = ({ post,setCurrentId}) => {
             disabled={!user?.result}
             onClick={() => dispatch(likePost(post._id))}
           >
-            {/* <Likes>{post.likes}</Likes> */}
-            <ThumbUpAltIcon />
-            {post.likeCount}
+            {/* <Likes/> */}
+            <ThumbUpAltIcon fontSize="small" /> Like {post.likeCount}
           </Button>
           <Button size="medium" color="primary" disabled={!user?.result}>
             <CommentIcon fontSize="small" />

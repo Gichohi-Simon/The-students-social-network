@@ -10,7 +10,8 @@ export default makeStyles((theme) =>({
         flexDirection: 'column',
         borderRadius: '15px',
         height: '100%',
-        width:'100%',
+        minWidth:'400px',
+        maxWidth:'400px'
     },
     header:{
         diplay:'flex',

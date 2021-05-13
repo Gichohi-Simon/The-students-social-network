@@ -4,6 +4,8 @@ export default makeStyles((theme) => ({
   container: {
     display: 'flex',
     alignItems: 'center',
+    flexDirection:'column-reverse'
+  
   },
   smMargin: {
     margin: theme.spacing(1),

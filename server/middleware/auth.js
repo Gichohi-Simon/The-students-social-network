@@ -12,9 +12,10 @@ const auth = (req,res,next) => {
         if(!token)
         res.status(401).json({msg:"no authentication token, access denied"});
 
-        let decodedData;
+        let decodedData = null;
 
         if(token && isCustomAuth){
+            //sign works
             decodedData =  jwt.sign(token,'test');
             req.userId = decodedData?.id;
             console.log(decodedData);
