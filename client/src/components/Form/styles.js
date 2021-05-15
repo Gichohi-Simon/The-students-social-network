@@ -3,12 +3,12 @@ import {makeStyles} from '@material-ui/core/styles'
 export default makeStyles((theme) => ({
 
     main:{
-        display:'flex',
+        display:'flex',        
         justifyContent:'center',
-        alignItems:'center'
     },
     paper:{
-        width:'50%',
+        width:'80%',
+        height:'300px',
         margin:'20px',
         padding:'20px'
     },

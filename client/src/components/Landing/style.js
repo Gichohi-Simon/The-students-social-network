@@ -24,6 +24,5 @@ export default makeStyles(() => ({
   },
   linkBtn:{
     textDecoration:'none',
-    
   }
 }));

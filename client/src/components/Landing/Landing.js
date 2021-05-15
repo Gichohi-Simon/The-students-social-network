@@ -15,7 +15,7 @@ const Landing = () => {
       </div>
 
       <div className={classes.landingBtn}>
-        <Button variant="contained" color="primary" align="center" size="large">
+        <Button variant="contained" color="primary" align="center" size="large" className={classes.SignUpButton}>
           <Link to='/auth' className={classes.linkBtn}>
             SignUp
           </Link>

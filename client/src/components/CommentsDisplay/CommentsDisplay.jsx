@@ -13,7 +13,7 @@ const CommentsDisplay = () => {
         !comments.length ? <CircularProgress /> :(
             <Grid container alignItems="stretch" spacing={2} className={classes.main}>
                 {comments.map((comment) =>(
-                    <Grid key={comment._id} item xs sm={12} lg={6}>
+                    <Grid key={comment._id} item xs={12} sm={12} lg={12}>
                         <CommentDisplay comment={comment}/>
                     </Grid>
                 ))}

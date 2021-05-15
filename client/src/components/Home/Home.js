@@ -28,6 +28,7 @@ import { Button } from "@material-ui/core";
 import { getPosts } from "../../actions/posts";
 import {getComments} from '../../actions/comments'
 
+
 function Home() {
  const drawerWidth = 240;
   const useStyles = makeStyles((theme) => ({
@@ -41,7 +42,8 @@ function Home() {
       alignItems:'center'
     },
     appBar: {
-      width: `calc(100% - ${drawerWidth}px)`,
+      // width: `calc(100% - ${drawerWidth}px)`,
+      width: '100%',
       marginLeft: drawerWidth,
     },
     drawer: {
@@ -73,12 +75,24 @@ function Home() {
     },
     logout:{
        position:'absolute',
-      right:'10px',
-      top:'5px'
+        right:'10px',
+        top:'5px'
     },
     userName:{
       margin:'10px'
-    }
+    },
+    newsContainer:{
+      display:'flex',
+      justifyContent:'center',
+    },
+    newsfeed:{
+      width:'70%',
+      display:'flex',
+      [theme.breakpoints.down('sm')]: {
+        width:'100%',
+        display:'block',
+      },
+    },
   }));
 
   const history = useHistory();
@@ -145,69 +159,14 @@ function Home() {
           )}
         </Toolbar>
       </AppBar>
-      <Drawer
-        className={classes.drawer}
-        variant="permanent"
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-        anchor="left"
-      >
-        <div className={classes.toolbar} />
-        <Typography variant="h4" color="primary" className={classes.title}>
-            Social Network
-        </Typography>
-        {/* <Divider /> */}
-        <List>
-          <ListItem >
-            <ListItemIcon >
-              <HomeIcon color="primary"/>
-            </ListItemIcon>
-            <Link to='/'>
-            <ListItemText primary="Home" />
-            </Link>
-          </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <AirplayIcon color="primary"/>
-            </ListItemIcon>
-            <Link to='/newsfeed'>
-            <ListItemText primary="Newsfeed" />
-            </Link>
-          </ListItem>
-          <ListItem >
-            <ListItemIcon>
-              <PostAddIcon color="primary"/>
-            </ListItemIcon>
-            <Link to='/newsfeed'>
-            <ListItemText primary="New Post" />
-            </Link>
-          </ListItem>
-          <ListItem >
-            <ListItemIcon>
-              <PersonIcon color="primary"/>
-            </ListItemIcon>
-            <Link to='/profile'>
-            <ListItemText primary="Profile" />
-            </Link>
-          </ListItem>
-          <ListItem >
-            <ListItemIcon >
-              <NotificationsActiveIcon color="primary"/>
-            </ListItemIcon>
-            <ListItemText primary="Notification" />
-          </ListItem>
-        </List>
-        {/* <Divider /> */}
-        <List>
-          <ListItem></ListItem>
-        </List>
-      </Drawer>
+     
       <main className={classes.content}>
         <div className={classes.toolbar} />
+        <div className={classes.newsContainer}>
         <div className={classes.newsfeed}>
-        <Form currentId={currentId} setCurrentId={setCurrentId}/>
+        <Form currentId={currentId} setCurrentId={setCurrentId} className={classes.postForm}/>
         <Posts setCurrentId={setCurrentId}/>
+        </div>
         </div>
       </main>
     </div>
@@ -215,4 +174,64 @@ function Home() {
 }
 
 export default Home;
+
+
+{/* <Drawer
+className={classes.drawer}
+variant="permanent"
+classes={{
+  paper: classes.drawerPaper,
+}}
+anchor="left"
+>
+<div className={classes.toolbar} />
+<Typography variant="h4" color="primary" className={classes.title}>
+    Social Network
+</Typography>
+{/* <Divider /> */}
+{/* <List>
+  <ListItem >
+    <ListItemIcon >
+      <HomeIcon color="primary"/>
+    </ListItemIcon>
+    <Link to='/'>
+    <ListItemText primary="Home" />
+    </Link>
+  </ListItem>
+  <ListItem>
+    <ListItemIcon>
+      <AirplayIcon color="primary"/>
+    </ListItemIcon>
+    <Link to='/newsfeed'>
+    <ListItemText primary="Newsfeed" />
+    </Link>
+  </ListItem>
+  <ListItem >
+    <ListItemIcon>
+      <PostAddIcon color="primary"/>
+    </ListItemIcon>
+    <Link to='/newsfeed'>
+    <ListItemText primary="New Post" />
+    </Link>
+  </ListItem> */}
+  {/* <ListItem >
+    <ListItemIcon>
+      <PersonIcon color="primary"/>
+    </ListItemIcon>
+    <Link to='/profile'>
+    <ListItemText primary="Profile" />
+    </Link>
+  </ListItem>
+  <ListItem >
+    <ListItemIcon >
+      <NotificationsActiveIcon color="primary"/>
+    </ListItemIcon>
+    <ListItemText primary="Notification" />
+  </ListItem> */}
+// </List>
+// {/* <Divider /> */}
+// <List>
+//   <ListItem></ListItem>
+// </List>
+// </Drawer> */}
 

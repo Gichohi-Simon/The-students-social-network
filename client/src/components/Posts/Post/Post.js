@@ -73,6 +73,7 @@ const Post = ({ post, setCurrentId }) => {
 
   return (
     <div className={classes.main}>
+      
       <Card className={classes.card}>
         <div className={classes.header}>
           <div className={classes.headerContainer}>
