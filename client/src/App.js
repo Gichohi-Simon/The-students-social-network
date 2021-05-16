@@ -23,6 +23,9 @@ const theme = createMuiTheme({
     fontWeightMedium: 600,
     fontWeightBold: 700,
   },
+
+
+
 });
 
 function App() {

@@ -9,13 +9,16 @@ const Landing = () => {
   return (
     <div className={classes.wrap}>
       <div className={classes.heading}>
-        <Typography variant="h2" color="primary" align="center" display="block">
+        <Typography variant="h2" color="primary" align="center" display="block" className={classes.title}>
           STUDENT SOCIAL NETWORK
         </Typography>
       </div>
 
       <div className={classes.landingBtn}>
-        <Button variant="contained" color="primary" align="center" size="large" className={classes.SignUpButton}>
+        <Button variant="contained" color="primary" align="center"  classes={{
+          root:classes.root,
+          label:classes.label
+        }}>
           <Link to='/auth' className={classes.linkBtn}>
             SignUp
           </Link>
