@@ -79,7 +79,7 @@ const Post = ({ post, setCurrentId }) => {
           <div className={classes.headerContainer}>
             {/* <Avatar className={classes.avatar}></Avatar> */}
             <div className={classes.headerContent}>
-              <Typography variant="h6">{post.name}</Typography>
+              <Typography variant="h6" >{post.name}</Typography>
               <Typography variant="body2">
                 {moment(post.createdAt).fromNow()}
               </Typography>

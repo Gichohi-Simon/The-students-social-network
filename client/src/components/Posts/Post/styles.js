@@ -40,10 +40,6 @@ export default makeStyles((theme) => ({
     width: theme.spacing(7),
     height: theme.spacing(7),
   },
-  headerContent: {
-    // marign:'20px',
-    // padding:'30px'
-  },
   edit: {
     position: "relative",
     left: "10px",
