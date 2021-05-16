@@ -10,8 +10,25 @@ export default makeStyles((theme) => ({
     width: "100%",
     minHeight: "750px",
   },
+
+  heading:{
+    fontSize:'3.75rem',
+    [theme.breakpoints.down('sm')]:{
+      fontSize:'1.5rem'
+    },
+    fontWeight:'bold'
+  },
+  button:{
+    fontSize:'large',
+    [theme.breakpoints.down('sm')]:{
+      fontSize:'small'
+    }
+  },
   paper:{
     marginTop: theme.spacing(8),
+    [theme.breakpoints.down('sm')]:{
+      marginTop: theme.spacing(4)
+    },
     display:'flex',
     flexDirection:'column',
     alignItems:'center',
@@ -29,6 +46,9 @@ export default makeStyles((theme) => ({
   },
   form:{
     width:'50%',
+    [theme.breakpoints.down('sm')]:{
+      width:'100%'
+    },
     marginTop:theme.spacing(3)
   },
   formInput:{

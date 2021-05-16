@@ -72,10 +72,10 @@ function Auth() {
     return (
         <div className={classes.wrap}>
            <Container componet="main" maxwidth="xs">
-               <Typography variant="h2" align="center" color="primary">
+               <Typography variant="h2" align="center" color="primary" className={classes.heading}>
                    Hello
                </Typography>
-               <Button variant="contained" color="primary" >
+               <Button variant="contained" color="primary"  classes={{root:classes.button}}>
                     <Link to="/" className={classes.linkBtn}>
                     Landing Page
                    </Link>
@@ -114,7 +114,7 @@ function Auth() {
                             </div>
                         </Grid>
 
-                        <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
+                        <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit} classes={{root:classes.button}} >
                             <Link to='/newsfeed'> 
                             {isSignUp ? 'Sign Up' : 'Sign In'}
                             </Link>
@@ -129,6 +129,7 @@ function Auth() {
                                 onClick={renderProps.onClick}
                                 disables={renderProps.disabled}
                                 startIcon={<Icon />}
+                                classes={{root:classes.button}}
                                 >
                                     Sign In with Google
                                 </Button>
@@ -138,7 +139,7 @@ function Auth() {
                             cookiePolicy="single_host_origin"
                         />
                         <Grid container>
-                            <Button onClick={switchMode} align="center" color="primary" fullWidth>
+                            <Button onClick={switchMode} align="center" color="primary" fullWidth  classes={{root:classes.button}}>
                                 {isSignUp ? 'Already have an account? Sign In' : "Don't have an account? Sign Up"}
                             </Button>
                         </Grid>
