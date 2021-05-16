@@ -66,7 +66,11 @@ function Home() {
     },
     avatar:{
       width:theme.spacing(7),
-      height:theme.spacing(7),   
+      margin:0,
+      [theme.breakpoints.down('sm')]:{
+        margin:'5px'
+      },
+      height:theme.spacing(7),
     },
     profile: {
       display: 'flex',
@@ -78,8 +82,20 @@ function Home() {
         right:'10px',
         top:'5px'
     },
+    logoutbtn:{
+      fontSize:'large',
+      [theme.breakpoints.down('sm')]:{
+        fontSize:'small'
+      }
+    },
     userName:{
-      margin:'10px'
+      margin:'10px',
+      fontSize:'1.25rem',
+      [theme.breakpoints.down('sm')]:{
+        fontSize:'1.0rem',
+        margin:'10px',
+        marginTop:'15px'
+      }
     },
     newsContainer:{
       display:'flex',
@@ -148,7 +164,7 @@ function Home() {
                </Avatar>
                <Typography className={classes.userName} variant="h6">{user.result.name}
                 </Typography>
-               <Button variant="contained" color="secondary" className={classes.logout} onClick={logout}>Logout</Button>
+               <Button variant="contained" color="secondary" className={classes.logout} classes={{root:classes.logoutbtn}} onClick={logout}>Logout</Button>
             </div>
           ):(
             <div>

@@ -56,19 +56,6 @@ const Form = ({currentId,setCurrentId}) => {
     <div className={classes.main}>
     <Paper className={classes.paper} elevation={3}>
     <form className={classes.form} onSubmit={handleSubmit}>
-        {/* <div className={classes.textField}>
-          <TextField
-            name="title"
-            label="Title"
-            variant="outlined"
-            color="primary"
-            required
-            className={classes.text}
-            value={postData.title}
-            onChange={(e) => setPostData({...postData,title:e.target.value})}
-          />
-        </div> */}
-
         <div className={classes.textField}>
           <TextField
             name="message"
@@ -104,7 +91,7 @@ const Form = ({currentId,setCurrentId}) => {
         </div>
 
         <div className={classes.textButton}>
-          <Button variant="contained" color="primary" size="large" type="submit" >
+          <Button variant="contained" color="primary" type="submit" classes={{root:classes.button}}>
             Post
           </Button>
         </div>

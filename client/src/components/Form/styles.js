@@ -7,9 +7,9 @@ export default makeStyles((theme) => ({
         justifyContent:'center',
     },
     paper:{
-        width:'80%',
+        width:'100%',
         height:'300px',
-        margin:'20px',
+        marginBottom:'20px',
         padding:'20px'
     },
    form:{
@@ -17,15 +17,18 @@ export default makeStyles((theme) => ({
    },
    textField:{
        margin:'10px',
-       width:'100%'
+       width:'100%',
+       color:'blue',
    },
    text:{
        width:'100%'
    },
-//    textButton:{
-//     position:'relative',
-//     left:'400px'
-//    },
+   button:{
+       fontSize:'large',
+       [theme.breakpoints.down('sm')]:{
+        fontSize:'small'
+       },
+   },
    loginPrompt:{
        height:'100px',
        width:'100%',
