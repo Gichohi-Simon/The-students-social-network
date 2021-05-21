@@ -34,7 +34,7 @@ function Home() {
   const useStyles = makeStyles((theme) => ({
     root: {
       display: "flex",
-      overflow:'hidden'
+      overflow:'hidden',
     },
     title:{
       display:'flex',
@@ -138,7 +138,6 @@ function Home() {
 
       if(decodedToken.exp * 1000 < new Date().getTime()) logout();
     }
-
 
     setUser(JSON.parse(localStorage.getItem('profile')))
 
