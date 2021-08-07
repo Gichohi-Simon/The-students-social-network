@@ -56,4 +56,23 @@ export default makeStyles((theme) => ({
   comments: {
     alignItems: "center",
   },
+  postName:{
+    fontSize:"1.3rem",
+    [theme.breakpoints.down('sm')]:{
+      fontSize:'1.0rem'
+    },
+    fontWeight:'bold',
+  },
+  postMessage:{
+    fontSize:'1.0rem',
+    [theme.breakpoints.down('sm')]:{
+      fontSize:'0.8rem'
+    }
+  },
+  button:{
+    fontSize:'1.2rem',
+    [theme.breakpoints.down('sm')]:{
+      fontSize:'1.0rem'
+    },
+  },
 }));

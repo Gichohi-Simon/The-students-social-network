@@ -79,7 +79,7 @@ const Post = ({ post, setCurrentId }) => {
           <div className={classes.headerContainer}>
             {/* <Avatar className={classes.avatar}></Avatar> */}
             <div className={classes.headerContent}>
-              <Typography variant="h6" >{post.name}</Typography>
+              <Typography className={classes.postName}>{post.name}</Typography>
               <Typography variant="body2">
                 {moment(post.createdAt).fromNow()}
               </Typography>
@@ -106,7 +106,7 @@ const Post = ({ post, setCurrentId }) => {
         </div>
         <CardMedia className={classes.media} image={post.selectedFile} />
         <CardContent className={classes.content}>
-          <Typography noWrap variant="body1">
+          <Typography noWrap className={classes.postMessage}>
             {post.message}
           </Typography>
         </CardContent>
@@ -116,9 +116,10 @@ const Post = ({ post, setCurrentId }) => {
             color="primary"
             disabled={!user?.result}
             onClick={() => dispatch(likePost(post._id))}
+            
           >
             {/* <Likes/> */}
-            <ThumbUpAltIcon fontSize="small" /> Like {post.likeCount}
+            <ThumbUpAltIcon fontSize="small"  className={classes.button}/>&nbsp; {post.likeCount}
           </Button>
 
           <div>
@@ -128,7 +129,7 @@ const Post = ({ post, setCurrentId }) => {
               disabled={!user?.result}
               onClick={handleOpen}
             >
-              <CommentIcon fontSize="small"></CommentIcon> &nbsp;Comment 
+              <CommentIcon fontSize="small" className={classes.button}></CommentIcon> &nbsp;
               <Modal open={open} onClose={handleClose}>
                 <div style={modalStyle}>
                   <Paper className={classes.paper}>
@@ -152,7 +153,7 @@ const Post = ({ post, setCurrentId }) => {
               disabled={!user?.result}
               onClick={() => dispatch(deletePost(post._id))}
             >
-              <DeleteIcon fontSize="small" /> Delete
+              <DeleteIcon fontSize="small" className={classes.button} /> 
             </Button>
           )}
         </CardActions>
