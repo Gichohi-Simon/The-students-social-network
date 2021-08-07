@@ -15,6 +15,10 @@ app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 app.use("/comments", commentRoutes);
 
+app.get('/',(req,res) => {
+  res.send('Hello to Memories API');
+});
+
 mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
