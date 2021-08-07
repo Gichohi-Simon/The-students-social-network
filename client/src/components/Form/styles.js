@@ -24,7 +24,7 @@ export default makeStyles((theme) => ({
        width:'100%'
    },
    button:{
-       fontSize:'large',
+       fontSize:'small',
        [theme.breakpoints.down('sm')]:{
         fontSize:'small'
        },

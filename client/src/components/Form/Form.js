@@ -6,7 +6,7 @@ import { Button } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import { Paper } from "@material-ui/core";
 import {useDispatch,useSelector} from 'react-redux';
-import {createPost,updatePost} from '../../actions/posts'
+import {createPost,updatePost} from '../../actions/posts';
 import { Typography } from "@material-ui/core";
 
 const Form = ({currentId,setCurrentId}) => {
@@ -70,7 +70,6 @@ const Form = ({currentId,setCurrentId}) => {
             onChange={(e) => setPostData({...postData,message:e.target.value})}
           />
         </div>
-
         <div className={classes.textField}>
           <TextField
             name="tags"
