@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({baseURL:'https://studentscoialnetwork.herokuapp.com/posts'})
+const API = axios.create({baseURL:'https://studentscoialnetwork.herokuapp.com'})
 
 //to send our token back to the backend so that middlware can verify.
 API.interceptors.request.use((req) => {
