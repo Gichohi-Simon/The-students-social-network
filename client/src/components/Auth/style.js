@@ -12,14 +12,16 @@ export default makeStyles((theme) => ({
   },
 
   heading:{
-    fontSize:'3.75rem',
+    marginTop:'30px',
+    fontSize:'2.5rem',
     [theme.breakpoints.down('sm')]:{
       fontSize:'1.5rem'
     },
     fontWeight:'bold'
   },
+
   button:{
-    fontSize:'large',
+    fontSize:'small',
     [theme.breakpoints.down('sm')]:{
       fontSize:'small'
     }

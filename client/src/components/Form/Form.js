@@ -54,7 +54,7 @@ const Form = ({currentId,setCurrentId}) => {
 
   return (
     <div className={classes.main}>
-    <Paper className={classes.paper} elevation={3}>
+    <Paper className={classes.paper} elevation={6}>
     <form className={classes.form} onSubmit={handleSubmit}>
         <div className={classes.textField}>
           <TextField

@@ -11,18 +11,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { AppBar } from "@material-ui/core";
 import { Toolbar } from "@material-ui/core";
 import { Avatar } from "@material-ui/core";
-import { Drawer } from "@material-ui/core";
-import { List } from "@material-ui/core";
-import { ListItem } from "@material-ui/core";
-import { ListItemIcon } from "@material-ui/core";
-import { ListItemText } from "@material-ui/core";
-import HomeIcon from "@material-ui/icons/Home";
 import { Typography } from "@material-ui/core";
 import { CssBaseline } from "@material-ui/core";
-import PersonIcon from '@material-ui/icons/Person';
-import PostAddIcon from '@material-ui/icons/PostAdd';
-import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
-import AirplayIcon from '@material-ui/icons/Airplay';
 import { Button } from "@material-ui/core";
 
 import { getPosts } from "../../actions/posts";
@@ -42,7 +32,6 @@ function Home() {
       alignItems:'center'
     },
     appBar: {
-      // width: `calc(100% - ${drawerWidth}px)`,
       width: '100%',
       marginLeft: drawerWidth,
     },
@@ -53,12 +42,7 @@ function Home() {
     drawerPaper: {
       width: drawerWidth,
     },
-    // necessary for content to be below app bar
     toolbar: theme.mixins.toolbar,
-    // toolbarFlex:{
-    //   display: 'flex',
-    //   justifyContent: 'flexEnd'
-    // },
     content: {
       flexGrow: 1,
       backgroundColor: theme.palette.background.default,
@@ -75,9 +59,9 @@ function Home() {
     profile: {
       display: 'flex',
       justifyContent: 'center',
-      // width: '400px',
     },
     logout:{
+      fonSize:'small',
        position:'absolute',
         right:'10px',
         top:'5px'
@@ -167,7 +151,7 @@ function Home() {
             </div>
           ):(
             <div>
-            <Button  component={Link} to='/auth' variant="contained" color="primary">
+            <Button  component={Link} to='/auth' variant="contained" color="primary" size="small">
               Sign In
             </Button>
           </div>
@@ -189,64 +173,3 @@ function Home() {
 }
 
 export default Home;
-
-
-{/* <Drawer
-className={classes.drawer}
-variant="permanent"
-classes={{
-  paper: classes.drawerPaper,
-}}
-anchor="left"
->
-<div className={classes.toolbar} />
-<Typography variant="h4" color="primary" className={classes.title}>
-    Social Network
-</Typography>
-{/* <Divider /> */}
-{/* <List>
-  <ListItem >
-    <ListItemIcon >
-      <HomeIcon color="primary"/>
-    </ListItemIcon>
-    <Link to='/'>
-    <ListItemText primary="Home" />
-    </Link>
-  </ListItem>
-  <ListItem>
-    <ListItemIcon>
-      <AirplayIcon color="primary"/>
-    </ListItemIcon>
-    <Link to='/newsfeed'>
-    <ListItemText primary="Newsfeed" />
-    </Link>
-  </ListItem>
-  <ListItem >
-    <ListItemIcon>
-      <PostAddIcon color="primary"/>
-    </ListItemIcon>
-    <Link to='/newsfeed'>
-    <ListItemText primary="New Post" />
-    </Link>
-  </ListItem> */}
-  {/* <ListItem >
-    <ListItemIcon>
-      <PersonIcon color="primary"/>
-    </ListItemIcon>
-    <Link to='/profile'>
-    <ListItemText primary="Profile" />
-    </Link>
-  </ListItem>
-  <ListItem >
-    <ListItemIcon >
-      <NotificationsActiveIcon color="primary"/>
-    </ListItemIcon>
-    <ListItemText primary="Notification" />
-  </ListItem> */}
-// </List>
-// {/* <Divider /> */}
-// <List>
-//   <ListItem></ListItem>
-// </List>
-// </Drawer> */}
-

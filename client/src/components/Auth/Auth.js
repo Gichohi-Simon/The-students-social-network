@@ -72,8 +72,8 @@ function Auth() {
     return (
         <div className={classes.wrap}>
            <Container componet="main" maxwidth="xs">
-               <Typography variant="h2" align="center" color="primary" className={classes.heading}>
-                   Hello
+               <Typography  align="center" className={classes.heading}>
+                   Create an Account or Login to socialise with other students
                </Typography>
                <Button variant="contained" color="primary"  classes={{root:classes.button}}>
                     <Link to="/" className={classes.linkBtn}>

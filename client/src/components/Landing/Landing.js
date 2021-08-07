@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Landing = () => {
   const classes = useStyles();
-
+  
   return (
     <div className={classes.wrap}>
       <div className={classes.heading}>
