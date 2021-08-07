@@ -16,18 +16,23 @@ for both client and server
 #Functionality
 
 user can: 
-    signUp, using googleOauth and the conventinal way 
-    create a post
-    like their own post and other peoples post
+    signUp, using googleOauth and the conventinal way.
+    <br /> 
+    create a post.
+    <br />
+    like their own post and other peoples post.
+    <br />
     edit their own post
 
 ps
+<br />
 Project uses Mvc pattern in Backend
 
-#Project ScreenShot
-#Auth Page
-<img src="/client/public/assets/auth.png"/>
-#Home Page
+Project ScreenShot
+<br />
+Home Page
 <img src="/client/public/assets/home.png"/>
-#news feed
+Auth Page
+<img src="/client/public/assets/auth.png"/>
+news feed
 <img src="/client/public/assets/feed.png"/>
