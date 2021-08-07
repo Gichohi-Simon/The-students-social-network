@@ -21,8 +21,8 @@ export default makeStyles((theme) => ({
     height: "400px",
   },
   title:{
-    fontSize:'3.75rem',[theme.breakpoints.down('sm')]:{
-      fontSize:'1.5rem',
+    fontSize:'2.5rem',[theme.breakpoints.down('sm')]:{
+      fontSize:'1.2rem',
       fontWeight:'bold'
     }
   },
@@ -35,7 +35,7 @@ export default makeStyles((theme) => ({
     textDecoration:'none',
   },
   root:{
-    fontSize:'large',
+    fontSize:'small',
     [theme.breakpoints.down('sm')]:{
       fontSize:'small',
     }

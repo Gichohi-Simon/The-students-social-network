@@ -9,7 +9,7 @@ const Landing = () => {
   return (
     <div className={classes.wrap}>
       <div className={classes.heading}>
-        <Typography variant="h2" color="primary" align="center" display="block" className={classes.title}>
+        <Typography variant="h3" color="primary" align="center" display="block" className={classes.title}>
           STUDENT SOCIAL NETWORK
         </Typography>
       </div>
