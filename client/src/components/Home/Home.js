@@ -49,12 +49,12 @@ function Home() {
       padding: theme.spacing(3),
     },
     avatar:{
-      width:theme.spacing(7),
+      width:theme.spacing(6),
       margin:0,
       [theme.breakpoints.down('sm')]:{
         margin:'5px'
       },
-      height:theme.spacing(7),
+      height:theme.spacing(6),
     },
     profile: {
       display: 'flex',
@@ -67,7 +67,7 @@ function Home() {
         top:'5px'
     },
     logoutbtn:{
-      fontSize:'large',
+      fontSize:'small',
       [theme.breakpoints.down('sm')]:{
         fontSize:'small'
       }
@@ -142,7 +142,6 @@ function Home() {
         <Toolbar className={classes.toolbarFlex}>
           {user ? (
             <div className={classes.profile}>
-              
                <Avatar className={classes.avatar} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}
                </Avatar>
                <Typography className={classes.userName} variant="h6">{user.result.name}
@@ -151,7 +150,7 @@ function Home() {
             </div>
           ):(
             <div>
-            <Button  component={Link} to='/auth' variant="contained" color="primary" size="small">
+            <Button  component={Link} to='/auth' variant="contained" color="primary">
               Sign In
             </Button>
           </div>
