@@ -1,12 +1,33 @@
-# The-students-social-network
-final year school project
+#The Students Social Network
 
-##stack
-<<<<<<< HEAD
-MERN stack was used in the construction of this porject
-=======
-MERN app
->>>>>>> c44b2d8ec81ec181ce1fe5aae0bc22ce0d137798
+#installation
 
-[LOCAL]DATABASE_URL = mongodb://localhost/SocialNetwork
+```
+    yarn install
+```
 
+running the project
+```
+npm run start 
+
+for both client and server
+```
+
+#Functionality
+
+user can: 
+    signUp, using googleOauth and the conventinal way 
+    create a post
+    like their own post and other peoples post
+    edit their own post
+
+ps
+Project uses Mvc pattern in Backend
+
+#Project ScreenShot
+#Auth Page
+<img src="/client/public/assets/auth.png"/>
+#Home Page
+<img src="/client/public/assets/home.png"/>
+#news feed
+<img src="/client/public/assets/feed.png"/>
